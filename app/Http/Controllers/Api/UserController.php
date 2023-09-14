@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserLoginRequest;
 use App\Http\Requests\UserRequest;
+use App\Http\Requests\UserUpdateRequest;
 use App\Models\User;
 use Auth;
 use Exception;
@@ -15,11 +16,11 @@ class UserController extends Controller
 {
     public function index()
     {
-//        return response()->json([
-//            "success" => true,
-//            "status_message" => "L'User a ete ajouter avec success",
-//            "data" => $User
-//        ], 200);
+        return response()->json([
+            "success" => true,
+            "status_message" => "L'User a ete ajouter avec success",
+            "data" => User::with('roles')->get()
+        ], 200);
     }
 
     public function store(UserRequest $request)
@@ -38,11 +39,12 @@ class UserController extends Controller
         }
     }
 
-    public function update(UserRequest $request, User $User){
+    public function update(UserUpdateRequest $request, User $User){
         try {
             $validate=$request->validated();
             $validate['password']= Hash::make($validate['password']);
             $User->update($validate);
+            $User->role()->sync($request->validated('role_id'));
             return response()->json([
                 "success" => true,
                 "status_message" => "L'User a ete modifier avec success",
@@ -73,7 +75,7 @@ class UserController extends Controller
                 return response()->json([
                     "success" => true,
                     "status_message" => "Connecter avec success",
-                    "eleve" => $User,
+                    "eleve" => User::where('users.id','=',''.$User->id)->with('roles')->first(),
                     "token" => $token,
                 ], 200);
             }else{

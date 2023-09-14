@@ -38,15 +38,15 @@ Route::prefix('admin')->name('admin.')->controller(\App\Http\Controllers\Api\Adm
 
 Route::prefix('user')->name('user.')->controller(\App\Http\Controllers\Api\UserController::class)->group(function (){
     //liste des admins
-    Route::get('/','index')->name('index')->middleware('auth:sanctum','abilities:user');
+    Route::get('/','index')->name('index');
     //ajouter un admin
     Route::post('/create','store');
     //connexion
     Route::post('/login','login');
     //deconnexion
-    Route::post('/logout','logout')->middleware('auth:sanctum','abilities:user');
+    Route::post('/logout','logout');
     //modfier
-    Route::put('/edit/{user}','update')->middleware('auth:sanctum','abilities:user');
+    Route::put('/edit/{user}','update');
     //supprimer
     Route::delete('/delete/{user}','delete')->middleware('auth:sanctum','abilities:user');
 });
