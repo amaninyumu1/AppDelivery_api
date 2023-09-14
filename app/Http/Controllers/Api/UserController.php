@@ -19,7 +19,7 @@ class UserController extends Controller
         return response()->json([
             "success" => true,
             "status_message" => "L'User a ete ajouter avec success",
-            "data" => User::with('roles')->get()
+            "data" => User::with('role')->get()
         ], 200);
     }
 
