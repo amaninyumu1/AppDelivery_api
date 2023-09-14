@@ -46,7 +46,18 @@ Route::prefix('user')->name('user.')->controller(\App\Http\Controllers\Api\UserC
     //deconnexion
     Route::post('/logout','logout')->middleware('auth:sanctum','abilities:user');
     //modfier
-    Route::put('/edit/{admin}','update')->middleware('auth:sanctum','abilities:user');
+    Route::put('/edit/{user}','update')->middleware('auth:sanctum','abilities:user');
     //supprimer
-    Route::delete('/delete/{admin}','delete')->middleware('auth:sanctum','abilities:user');
+    Route::delete('/delete/{user}','delete')->middleware('auth:sanctum','abilities:user');
+});
+
+Route::prefix('role')->name('role.')->controller(\App\Http\Controllers\Api\RoleController::class)->group(function (){
+    //liste des admins
+    Route::get('/','index')->name('index');
+    //ajouter un role
+    Route::post('/create','store');
+    //modfier
+    Route::put('/edit/{role}','update');
+    //supprimer
+    Route::delete('/delete/{role}','delete');
 });
