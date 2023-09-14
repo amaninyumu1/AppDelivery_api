@@ -69,13 +69,13 @@ class UserController extends Controller
 
     public function login(UserLoginRequest $request){
         try {
-            if (auth()->attempt($request->only('names','password'))){
-                $User=auth()->guard('User')->user();
+            if (auth()->attempt($request->only('email','password'))){
+                $User=auth()->user();
                 $token = $User->createToken('deliveryapp', ['user'])->plainTextToken;
                 return response()->json([
                     "success" => true,
                     "status_message" => "Connecter avec success",
-                    "eleve" => User::where('users.id','=',''.$User->id)->with('roles')->first(),
+                    "user" => User::with('role')->where('users.id','=',''.$User->id)->get(),
                     "token" => $token,
                 ], 200);
             }else{

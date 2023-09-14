@@ -69,7 +69,7 @@ class AdminController extends Controller
                 return response()->json([
                     "success" => true,
                     "status_message" => "Connecter avec success",
-                    "eleve" => $admin,
+                    "Admin" => $admin,
                     "token" => $token,
                 ], 200);
             }else{
