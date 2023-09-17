@@ -83,3 +83,14 @@ Route::prefix('categorie')->name('categorie.')->controller(\App\Http\Controllers
     //supprimer
     Route::delete('/delete/{categorie}','delete');
 });
+
+Route::prefix('galerie')->name('galerie.')->controller(\App\Http\Controllers\Api\GalerieImageController::class)->group(function (){
+    //liste des admins
+    Route::get('/','index')->name('index');
+    //ajouter un role
+    Route::post('/create','store');
+    //modfier
+    Route::put('/edit/{galerie}','update');
+    //supprimer
+    Route::delete('/delete/{galerie}','delete');
+});
