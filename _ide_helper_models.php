@@ -42,6 +42,26 @@ namespace App\Models{
 
 namespace App\Models{
 /**
+ * App\Models\Categorie
+ *
+ * @property int $id
+ * @property string $categories_name
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|Categorie newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Categorie newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Categorie query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Categorie whereCategoriesName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Categorie whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Categorie whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Categorie whereUpdatedAt($value)
+ * @mixin \Eloquent
+ */
+	class IdeHelperCategorie {}
+}
+
+namespace App\Models{
+/**
  * App\Models\Restaurant
  *
  * @property int $id
@@ -50,11 +70,13 @@ namespace App\Models{
  * @property string $restaurant_email
  * @property string $restaurant_tel
  * @property string $whatapp
- * @property string $logo
+ * @property string|null $logo
  * @property string $longitude
  * @property string $latitude
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property int|null $user_id
+ * @property-read \App\Models\User|null $user
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant query()
@@ -68,6 +90,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereRestaurantName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereRestaurantTel($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereUserId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereWhatapp($value)
  * @mixin \Eloquent
  */
@@ -100,7 +123,6 @@ namespace App\Models{
  *
  * @property int $id
  * @property string $name
- * @property string $lastname
  * @property string $tel
  * @property string $email
  * @property \Illuminate\Support\Carbon|null $email_verified_at
@@ -110,6 +132,8 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection<int, \Illuminate\Notifications\DatabaseNotification> $notifications
  * @property-read int|null $notifications_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Restaurant> $restaurant
+ * @property-read int|null $restaurant_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Role> $role
  * @property-read int|null $role_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \Laravel\Sanctum\PersonalAccessToken> $tokens
@@ -122,7 +146,6 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|User whereEmail($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereEmailVerifiedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereLastname($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User wherePassword($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereRememberToken($value)
