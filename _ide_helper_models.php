@@ -48,6 +48,8 @@ namespace App\Models{
  * @property string $categories_name
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Plat> $plat
+ * @property-read int|null $plat_count
  * @method static \Illuminate\Database\Eloquent\Builder|Categorie newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Categorie newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Categorie query()
@@ -92,6 +94,10 @@ namespace App\Models{
  * @property int|null $categorie_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Categorie|null $categorie
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\GalerieImage> $galerieImage
+ * @property-read int|null $galerie_image_count
+ * @property-read \App\Models\Restaurant|null $restaurant
  * @method static \Illuminate\Database\Eloquent\Builder|Plat newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Plat newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Plat query()
@@ -124,6 +130,8 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property int|null $user_id
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Plat> $plat
+ * @property-read int|null $plat_count
  * @property-read \App\Models\User|null $user
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant newQuery()

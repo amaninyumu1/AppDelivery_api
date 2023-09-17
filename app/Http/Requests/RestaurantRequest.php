@@ -32,7 +32,8 @@ class RestaurantRequest extends FormRequest
             'restaurant_email'=>['required','email',Rule::unique('restaurants')->ignore($this->route()->parameter('restaurant'))],
             'longitude'=>['required','numeric',Rule::unique('restaurants')->ignore($this->route()->parameter('restaurant'))],
             'latitude'=>['required','numeric',Rule::unique('restaurants')->ignore($this->route()->parameter('restaurant'))],
-            'logo'=>['image', 'max:2000', 'mimes:jpge,jpg,png']
+            'logo'=>['image', 'max:2000', 'mimes:jpge,jpg,png'],
+            'user_id'=>['required','exists:users,id']
         ];
     }
 

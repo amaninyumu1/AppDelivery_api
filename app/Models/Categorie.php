@@ -15,8 +15,8 @@ class Categorie extends Model
 
     protected $fillable=['categories_name'];
 
-    /*public function plat(): HasMany
+    public function plat(): HasMany
     {
-        return $this->hasMany();
-    }*/
+        return $this->hasMany(Plat::class);
+    }
 }
