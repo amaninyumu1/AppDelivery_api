@@ -44,6 +44,14 @@ class RestaurantController extends Controller
     public function update(RestaurantRequest $request, Restaurant $Restaurant){
         try {
             $validate=$request->validated();
+            /**
+             * @var UploadedFile $logo
+             */
+            $logo = $request->validated('logo');
+            if (!empty($logo) && !$logo->getError()) {
+                $logoPath = $logo->store('restaurant', 'public');
+                $validate['logo'] = $logoPath;
+            }
             $Restaurant->update($validate);
             return response()->json([
                 "success" => true,
