@@ -26,7 +26,6 @@ class UserRequest extends FormRequest
     {
         return [
             'name'=>['required','string','min:4',Rule::unique('users')->ignore($this->route()->parameter('user'))],
-            'lastname'=>['required','string','min:4',Rule::unique('users')->ignore($this->route()->parameter('user'))],
             'tel'=>['required',Rule::unique('users')->ignore($this->route()->parameter('user'))],
             'email'=>['required','email',Rule::unique('users')->ignore($this->route()->parameter('user'))],
             'password'=>['required','min:8']
