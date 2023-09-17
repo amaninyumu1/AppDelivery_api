@@ -62,6 +62,34 @@ namespace App\Models{
 
 namespace App\Models{
 /**
+ * App\Models\Plat
+ *
+ * @property int $id
+ * @property string $plat_name
+ * @property string $description
+ * @property string $prix
+ * @property string $dure
+ * @property int|null $categorie_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|Plat newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Plat newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Plat query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Plat whereCategorieId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Plat whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Plat whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Plat whereDure($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Plat whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Plat wherePlatName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Plat wherePrix($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Plat whereUpdatedAt($value)
+ * @mixin \Eloquent
+ */
+	class IdeHelperPlat {}
+}
+
+namespace App\Models{
+/**
  * App\Models\Restaurant
  *
  * @property int $id
