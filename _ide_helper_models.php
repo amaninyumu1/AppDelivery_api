@@ -64,6 +64,34 @@ namespace App\Models{
 
 namespace App\Models{
 /**
+ * App\Models\Commande
+ *
+ * @property int $id
+ * @property string $adresse
+ * @property int $nombrePlats
+ * @property string $coutTotal
+ * @property string $distance
+ * @property int|null $plat_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|Commande newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Commande newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Commande query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Commande whereAdresse($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Commande whereCoutTotal($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Commande whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Commande whereDistance($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Commande whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Commande whereNombrePlats($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Commande wherePlatId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Commande whereUpdatedAt($value)
+ * @mixin \Eloquent
+ */
+	class IdeHelperCommande {}
+}
+
+namespace App\Models{
+/**
  * App\Models\GalerieImage
  *
  * @property int $id
