@@ -71,7 +71,6 @@ namespace App\Models{
  * @property int $nombrePlats
  * @property string $coutTotal
  * @property string $distance
- * @property int|null $plat_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @method static \Illuminate\Database\Eloquent\Builder|Commande newModelQuery()
@@ -83,7 +82,6 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Commande whereDistance($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Commande whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Commande whereNombrePlats($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Commande wherePlatId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Commande whereUpdatedAt($value)
  * @mixin \Eloquent
  */
