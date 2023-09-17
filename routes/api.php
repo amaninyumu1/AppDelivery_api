@@ -94,3 +94,14 @@ Route::prefix('galerie')->name('galerie.')->controller(\App\Http\Controllers\Api
     //supprimer
     Route::delete('/delete/{galerie}','delete');
 });
+
+Route::prefix('plat')->name('plat.')->controller(\App\Http\Controllers\Api\PlatController::class)->group(function (){
+    //liste des admins
+    Route::get('/','index')->name('index');
+    //ajouter un role
+    Route::post('/create','store');
+    //modfier
+    Route::put('/edit/{plat}','update');
+    //supprimer
+    Route::delete('/delete/{plat}','delete');
+});
