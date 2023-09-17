@@ -42,6 +42,40 @@ namespace App\Models{
 
 namespace App\Models{
 /**
+ * App\Models\Restaurant
+ *
+ * @property int $id
+ * @property string $restaurant_name
+ * @property string $adresse
+ * @property string $restaurant_email
+ * @property string $restaurant_tel
+ * @property string $whatapp
+ * @property string $logo
+ * @property string $longitude
+ * @property string $latitude
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|Restaurant newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Restaurant newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Restaurant query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereAdresse($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereLatitude($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereLogo($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereLongitude($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereRestaurantEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereRestaurantName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereRestaurantTel($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereWhatapp($value)
+ * @mixin \Eloquent
+ */
+	class IdeHelperRestaurant {}
+}
+
+namespace App\Models{
+/**
  * App\Models\Role
  *
  * @property int $id
