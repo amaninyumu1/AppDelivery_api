@@ -72,3 +72,14 @@ Route::prefix('restaurant')->name('restaurant.')->controller(\App\Http\Controlle
     //supprimer
     Route::delete('/delete/{restaurant}','delete');
 });
+
+Route::prefix('categorie')->name('categorie.')->controller(\App\Http\Controllers\Api\CategoriesController::class)->group(function (){
+    //liste des admins
+    Route::get('/','index')->name('index');
+    //ajouter un role
+    Route::post('/create','store');
+    //modfier
+    Route::put('/edit/{categorie}','update');
+    //supprimer
+    Route::delete('/delete/{categorie}','delete');
+});
