@@ -92,6 +92,7 @@ namespace App\Models{
  * @property string $prix
  * @property string $dure
  * @property int|null $categorie_id
+ * @property int|null $restaurant_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Categorie|null $categorie
@@ -108,6 +109,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Plat whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Plat wherePlatName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Plat wherePrix($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Plat whereRestaurantId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Plat whereUpdatedAt($value)
  * @mixin \Eloquent
  */
