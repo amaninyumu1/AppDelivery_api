@@ -9,7 +9,6 @@ use App\Models\Admin;
 use Auth;
 use Exception;
 use Hash;
-use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
@@ -69,7 +68,7 @@ class AdminController extends Controller
                 return response()->json([
                     "success" => true,
                     "status_message" => "Connecter avec success",
-                    "Admin" => $admin,
+                    "admin" => $admin,
                     "token" => $token,
                 ], 200);
             }else{

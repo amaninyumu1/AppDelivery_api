@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'laravel/laravel',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => NULL,
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '3860f0b7b8eb70c5c580306f099059b8f98b43fa',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -229,6 +229,15 @@
             'aliases' => array(),
             'dev_requirement' => true,
         ),
+        'hardevine/shoppingcart' => array(
+            'pretty_version' => '3.2',
+            'version' => '3.2.0.0',
+            'reference' => 'df525606697abf68882a2221ad1f2286353b49eb',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../hardevine/shoppingcart',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'illuminate/auth' => array(
             'dev_requirement' => false,
             'replaced' => array(
@@ -443,9 +452,9 @@
             'dev_requirement' => false,
         ),
         'laravel/laravel' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => NULL,
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '3860f0b7b8eb70c5c580306f099059b8f98b43fa',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
