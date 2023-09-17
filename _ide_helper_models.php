@@ -62,6 +62,26 @@ namespace App\Models{
 
 namespace App\Models{
 /**
+ * App\Models\GalerieImage
+ *
+ * @property int $id
+ * @property string $images
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|GalerieImage newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|GalerieImage newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|GalerieImage query()
+ * @method static \Illuminate\Database\Eloquent\Builder|GalerieImage whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|GalerieImage whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|GalerieImage whereImages($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|GalerieImage whereUpdatedAt($value)
+ * @mixin \Eloquent
+ */
+	class IdeHelperGalerieImage {}
+}
+
+namespace App\Models{
+/**
  * App\Models\Plat
  *
  * @property int $id
