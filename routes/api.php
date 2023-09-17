@@ -61,3 +61,14 @@ Route::prefix('role')->name('role.')->controller(\App\Http\Controllers\Api\RoleC
     //supprimer
     Route::delete('/delete/{role}','delete');
 });
+
+Route::prefix('restaurant')->name('restaurant.')->controller(\App\Http\Controllers\Api\RestaurantController::class)->group(function (){
+    //liste des admins
+    Route::get('/','index')->name('index');
+    //ajouter un role
+    Route::post('/create','store');
+    //modfier
+    Route::put('/edit/{restaurant}','update');
+    //supprimer
+    Route::delete('/delete/{restaurant}','delete');
+});
