@@ -60,6 +60,14 @@ class AdminController extends Controller
         }
     }
 
+    public function findByid(Admin $admin)
+    {
+        return response()->json([
+            "success" => true,
+            "data" => Admin::find($admin)
+        ], 200);
+    }
+
     public function login(AdminLoginRequest $request){
         try {
             if (Auth::guard('admin')->attempt($request->only('names','password'))){

@@ -66,4 +66,12 @@ class PlatController extends Controller
         }
     }
 
+    public function findPlatByid(Plat $plat)
+    {
+        return response()->json([
+            "success" => true,
+            "data" => Plat::find($plat->id)
+        ], 200);
+    }
+
 }

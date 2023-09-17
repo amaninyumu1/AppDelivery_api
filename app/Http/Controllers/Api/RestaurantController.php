@@ -75,4 +75,12 @@ class RestaurantController extends Controller
         }
     }
 
+    public function findRestaurantById(Restaurant $restaurant)
+    {
+        return response()->json([
+            "success" => true,
+            "data" => Restaurant::find($restaurant)
+        ], 200);
+    }
+
 }

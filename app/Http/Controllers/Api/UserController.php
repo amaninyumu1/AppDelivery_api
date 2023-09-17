@@ -70,6 +70,14 @@ class UserController extends Controller
         }
     }
 
+    public function findUserById(User $user)
+    {
+        return response()->json([
+            "success" => true,
+            "data" => User::find($user),
+        ], 200);
+    }
+
     public function login(UserLoginRequest $request){
         try {
             if (auth()->attempt($request->only('email','password'))){

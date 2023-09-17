@@ -24,6 +24,8 @@ Route::prefix('token')->name('faild.')->controller(\App\Http\Controllers\Control
 Route::prefix('admin')->name('admin.')->controller(\App\Http\Controllers\Api\AdminController::class)->group(function (){
     //liste des admins
     Route::get('/','index')->name('index')->middleware('auth:sanctum','abilities:admin');
+    //list admin by id
+    Route::get('/{admin}','findByid')->name('index')->middleware('auth:sanctum','abilities:admin');
     //ajouter un admin
     Route::post('/create','store')->middleware('auth:sanctum','abilities:admin');
     //connexion
@@ -39,6 +41,8 @@ Route::prefix('admin')->name('admin.')->controller(\App\Http\Controllers\Api\Adm
 Route::prefix('user')->name('user.')->controller(\App\Http\Controllers\Api\UserController::class)->group(function (){
     //liste des admins
     Route::get('/','index')->name('index');
+    //liste user by id
+    Route::get('/{user}','findUserById');
     //ajouter un admin
     Route::post('/create','store');
     //connexion
@@ -54,6 +58,8 @@ Route::prefix('user')->name('user.')->controller(\App\Http\Controllers\Api\UserC
 Route::prefix('role')->name('role.')->controller(\App\Http\Controllers\Api\RoleController::class)->group(function (){
     //liste des admins
     Route::get('/','index')->name('index');
+    //list de role by id
+    Route::get('/{role}','findRoleById');
     //ajouter un role
     Route::post('/create','store');
     //modfier
@@ -65,6 +71,8 @@ Route::prefix('role')->name('role.')->controller(\App\Http\Controllers\Api\RoleC
 Route::prefix('restaurant')->name('restaurant.')->controller(\App\Http\Controllers\Api\RestaurantController::class)->group(function (){
     //liste des admins
     Route::get('/','index')->name('index');
+    //list de restaurant by id
+    Route::get('/{restaurant}','findRestaurantById');
     //ajouter un role
     Route::post('/create','store');
     //modfier
@@ -76,6 +84,8 @@ Route::prefix('restaurant')->name('restaurant.')->controller(\App\Http\Controlle
 Route::prefix('categorie')->name('categorie.')->controller(\App\Http\Controllers\Api\CategoriesController::class)->group(function (){
     //liste des admins
     Route::get('/','index')->name('index');
+    //list de categorie by id
+    Route::get('/{categorie}','findCategorieById');
     //ajouter un role
     Route::post('/create','store');
     //modfier
@@ -98,10 +108,24 @@ Route::prefix('galerie')->name('galerie.')->controller(\App\Http\Controllers\Api
 Route::prefix('plat')->name('plat.')->controller(\App\Http\Controllers\Api\PlatController::class)->group(function (){
     //liste des admins
     Route::get('/','index')->name('index');
+    //list de plat by id
+    Route::get('/{plat}','findPlatByid');
     //ajouter un role
     Route::post('/create','store');
     //modfier
     Route::put('/edit/{plat}','update');
     //supprimer
     Route::delete('/delete/{plat}','delete');
+});
+
+Route::prefix('commande')->name('commande.')->controller(\App\Http\Controllers\Api\CommandeController::class)->group(function (){
+    Route::get('/pannier/{id}','addCart');
+    /*//liste des admins
+    Route::get('/','index')->name('index');
+    //ajouter un role
+    Route::post('/create','store');
+    //modfier
+    Route::put('/edit/{plat}','update');
+    //supprimer
+    Route::delete('/delete/{plat}','delete');*/
 });

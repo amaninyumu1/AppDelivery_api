@@ -58,4 +58,12 @@ class CategoriesController extends Controller
         }
     }
 
+    public function findCategorieById(Categorie $categorie)
+    {
+        return response()->json([
+            "success" => true,
+            "data" => Categorie::find($categorie),
+        ], 200);
+    }
+
 }
