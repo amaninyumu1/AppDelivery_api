@@ -8,6 +8,7 @@ use App\Http\Requests\UserRequest;
 use App\Http\Requests\UserUpdateRequest;
 use App\Models\User;
 use Auth;
+use DB;
 use Exception;
 use Hash;
 use Illuminate\Http\Request;
@@ -29,6 +30,8 @@ class UserController extends Controller
             $validate=$request->validated();
             $validate['password']= Hash::make($validate['password']);
             $User=User::create($validate);
+            $lastUserId= DB::getPdo()->lastInsertId();
+            DB::table('role_user')->insert(['']);
             return response()->json([
                 "success" => true,
                 "status_message" => "L'User a ete ajouter avec success",
