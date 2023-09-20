@@ -30,4 +30,9 @@ class Plat extends Model
     {
         return $this->belongsToMany(GalerieImage::class);
     }
+
+    public function panier(): HasMany
+    {
+        return $this->hasMany(Panier::class);
+    }
 }

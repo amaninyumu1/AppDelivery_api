@@ -72,6 +72,8 @@ namespace App\Models{
  * @property string $distance
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Panier> $panier
+ * @property-read int|null $panier_count
  * @method static \Illuminate\Database\Eloquent\Builder|Commande newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Commande newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Commande query()
@@ -112,6 +114,7 @@ namespace App\Models{
  *
  * @property int $id
  * @property int $nbrePlats
+ * @property int $status
  * @property int|null $user_id
  * @property int|null $plat_id
  * @property int|null $commande_id
@@ -125,6 +128,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Panier whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Panier whereNbrePlats($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Panier wherePlatId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Panier whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Panier whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Panier whereUserId($value)
  * @mixin \Eloquent
@@ -148,6 +152,8 @@ namespace App\Models{
  * @property-read \App\Models\Categorie|null $categorie
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\GalerieImage> $galerieImage
  * @property-read int|null $galerie_image_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Panier> $panier
+ * @property-read int|null $panier_count
  * @property-read \App\Models\Restaurant|null $restaurant
  * @method static \Illuminate\Database\Eloquent\Builder|Plat newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Plat newQuery()
@@ -240,6 +246,8 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection<int, \Illuminate\Notifications\DatabaseNotification> $notifications
  * @property-read int|null $notifications_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Panier> $panier
+ * @property-read int|null $panier_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Restaurant> $restaurant
  * @property-read int|null $restaurant_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Role> $role
