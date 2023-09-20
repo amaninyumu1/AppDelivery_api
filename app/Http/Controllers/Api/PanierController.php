@@ -51,8 +51,7 @@ class PanierController extends Controller
     public function panierShow()
     {
         $panier=DB::table('paniers')->join('plats','plats.id','=','paniers.plat_id')->join('galerie_image_plat','plats.id','=','galerie_image_plat.plat_id')->join('galerie_images','galerie_image_plat.galerie_image_id','=','galerie_images.id')->where('paniers.user_id','=',''.Auth::user()->id)->where('paniers.status','=','0')->get();
-            return PlatResource::collection($panier);
-        //->where('paniers.user_id','=',''.Auth::user()->id)->where('paniers.status','=','0')
+            return $panier;
     }
 
     public function update(PanierRequest $request, Panier $Panier){
