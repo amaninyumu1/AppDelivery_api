@@ -68,7 +68,6 @@ namespace App\Models{
  *
  * @property int $id
  * @property string $adresse
- * @property int $nombrePlats
  * @property string $coutTotal
  * @property string $distance
  * @property \Illuminate\Support\Carbon|null $created_at
@@ -81,7 +80,6 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Commande whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Commande whereDistance($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Commande whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Commande whereNombrePlats($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Commande whereUpdatedAt($value)
  * @mixin \Eloquent
  */
@@ -106,6 +104,32 @@ namespace App\Models{
  * @mixin \Eloquent
  */
 	class IdeHelperGalerieImage {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\Panier
+ *
+ * @property int $id
+ * @property int $nbrePlats
+ * @property int|null $user_id
+ * @property int|null $plat_id
+ * @property int|null $commande_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|Panier newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Panier newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Panier query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Panier whereCommandeId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Panier whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Panier whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Panier whereNbrePlats($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Panier wherePlatId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Panier whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Panier whereUserId($value)
+ * @mixin \Eloquent
+ */
+	class IdeHelperPanier {}
 }
 
 namespace App\Models{
