@@ -120,6 +120,7 @@ Route::prefix('plat')->name('plat.')->controller(\App\Http\Controllers\Api\PlatC
 
 Route::prefix('commande')->name('commande.')->controller(\App\Http\Controllers\Api\CommandeController::class)->group(function (){
     Route::get('/pannier/{id}','addCart');
+    Route::post('/pannier/show','cartShow');
     /*//liste des admins
     Route::get('/','index')->name('index');
     //ajouter un role

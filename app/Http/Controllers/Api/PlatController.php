@@ -3,9 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\PlatLoginRequest;
 use App\Http\Requests\PlatRequest;
-use App\Http\Requests\PlatUpdateRequest;
 use App\Models\Plat;
 use Auth;
 use DB;
