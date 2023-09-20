@@ -119,29 +119,27 @@ Route::prefix('plat')->name('plat.')->controller(\App\Http\Controllers\Api\PlatC
 });
 
 Route::prefix('commande')->name('commande.')->controller(\App\Http\Controllers\Api\CommandeController::class)->group(function (){
-    Route::post('/pannier/{id}','addCart')->middleware('auth:sanctum','abilities:user');
-    Route::get('/pannier/show','cartShow')->middleware('auth:sanctum','abilities:user');
-    /*//liste des admins
-    Route::get('/','index')->name('index');
-    //ajouter un role
-    Route::post('/create','store');
+    //liste des commandes
+    Route::get('/','index')->name('index')->middleware('auth:sanctum','abilities:user');
+    //afficher la commande par id
+    Route::get('/{commande}','findCommandeByid');
+    //ajouter une commande
+    Route::post('/create','store')->middleware('auth:sanctum','abilities:user');
     //modfier
-    Route::put('/edit/{plat}','update');
+    Route::put('/edit/{commande}','update')->middleware('auth:sanctum','abilities:user');
     //supprimer
-    Route::delete('/delete/{plat}','delete');*/
+    Route::delete('/delete/{commande}','delete')->middleware('auth:sanctum','abilities:user');
 });
 
 Route::prefix('panier')->name('panier.')->controller(\App\Http\Controllers\Api\PanierController::class)->group(function (){
+    //ajouter au panier
     Route::post('/create/{id}','store')->middleware('auth:sanctum','abilities:user');
+    //afficher le panier
     Route::patch('/show','panierShow')->middleware('auth:sanctum','abilities:user');
-    //list de plat by id
-    Route::get('/{panier}','findPlatByid');
-    /*//liste des admins
-    Route::get('/','index')->name('index');
-    //ajouter un role
-    Route::post('/create','store');
+    //afficher le panier par id
+    Route::get('/show/{panier}','findPanierByid');
     //modfier
-    Route::put('/edit/{plat}','update');
+    Route::put('/edit/{panier}','update')->middleware('auth:sanctum','abilities:user');
     //supprimer
-    Route::delete('/delete/{plat}','delete');*/
+    Route::delete('/delete/{panier}','delete')->middleware('auth:sanctum','abilities:user');
 });

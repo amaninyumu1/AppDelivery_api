@@ -36,6 +36,7 @@ class PanierController extends Controller
                 $validate=$request->validated();
                 $validate['user_id']=Auth::user()->id;
                 $validate['plat_id']=$plat->id;
+                $validate['cout']=$validate['nbrePlats']*$plat->prix;
                 $Panier=Panier::create($validate);
             }
             return response()->json([
@@ -50,17 +51,24 @@ class PanierController extends Controller
 
     public function panierShow()
     {
-        $panier=DB::table('paniers')->join('plats','plats.id','=','paniers.plat_id')->join('galerie_image_plat','plats.id','=','galerie_image_plat.plat_id')->join('galerie_images','galerie_image_plat.galerie_image_id','=','galerie_images.id')->where('paniers.user_id','=',''.Auth::user()->id)->where('paniers.status','=','0')->get();
-            return $panier;
+        return response()->json([
+            "success" => true,
+            "data" => $this->findPanierByAuthUserAndStatus(Auth::user()->id,0,false),
+        ], 200);
     }
 
     public function update(PanierRequest $request, Panier $Panier){
         try {
-            $validate=$request->validated();
-            $Panier->update($validate);
+            $panier=Panier::find($Panier->id);
+            $plat=Plat::findOrFail($panier->plat_id);
+                $validate=$request->validated();
+                $validate['user_id']=Auth::user()->id;
+                $validate['plat_id']=$plat->id;
+                $validate['cout']=$validate['nbrePlats']*$plat->prix;
+                $Panier->update($validate);
             return response()->json([
                 "success" => true,
-                "status_message" => "Le Panier a ete modifier avec success",
+                "status_message" => "Le Panier a ete modifier avec success avec success",
             ], 200);
         }catch (Exception $e){
             return response()->json($e);

@@ -72,6 +72,7 @@ namespace App\Models{
  * @property string $distance
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property int $status_commande
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Panier> $panier
  * @property-read int|null $panier_count
  * @method static \Illuminate\Database\Eloquent\Builder|Commande newModelQuery()
@@ -82,6 +83,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Commande whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Commande whereDistance($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Commande whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Commande whereStatusCommande($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Commande whereUpdatedAt($value)
  * @mixin \Eloquent
  */
@@ -114,16 +116,21 @@ namespace App\Models{
  *
  * @property int $id
  * @property int $nbrePlats
+ * @property string $cout
  * @property int $status
  * @property int|null $user_id
  * @property int|null $plat_id
  * @property int|null $commande_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Commande|null $commande
+ * @property-read \App\Models\Plat|null $plat
+ * @property-read \App\Models\User|null $user
  * @method static \Illuminate\Database\Eloquent\Builder|Panier newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Panier newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Panier query()
  * @method static \Illuminate\Database\Eloquent\Builder|Panier whereCommandeId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Panier whereCout($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Panier whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Panier whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Panier whereNbrePlats($value)

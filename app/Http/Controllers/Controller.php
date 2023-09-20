@@ -33,4 +33,13 @@ class Controller extends BaseController
     {
         return DB::table('roles')->where('roles.roles','=',''.$roleName)->get()->first();
     }
+
+    public function findPanierByAuthUserAndStatus($user_id,bool $status,bool $onSum=false)
+    {
+        $panier=DB::table('paniers')->join('plats','plats.id','=','paniers.plat_id')->join('galerie_image_plat','plats.id','=','galerie_image_plat.plat_id')->join('galerie_images','galerie_image_plat.galerie_image_id','=','galerie_images.id')->where('paniers.user_id','=',''.$user_id)->where('paniers.status','=',''.$status)->get();
+        if ($onSum){
+            $panier=DB::table('paniers')->join('plats','plats.id','=','paniers.plat_id')->join('galerie_image_plat','plats.id','=','galerie_image_plat.plat_id')->join('galerie_images','galerie_image_plat.galerie_image_id','=','galerie_images.id')->where('paniers.user_id','=',''.$user_id)->where('paniers.status','=',''.$status)->sum('paniers.cout');
+        }
+        return $panier;
+    }
 }

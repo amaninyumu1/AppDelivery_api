@@ -13,7 +13,7 @@ class Commande extends Model
 {
     use HasFactory;
 
-    protected $fillable=['adresse','coutTotal','distance'];
+    protected $fillable=['adresse','coutTotal','distance','status_commande'];
 
 
     public function panier(): HasMany

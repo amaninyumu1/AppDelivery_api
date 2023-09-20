@@ -7,7 +7,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Validation\Rule;
 
-class PanierRequest extends FormRequest
+class CommandeRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,11 +25,9 @@ class PanierRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nbrePlats'=>['required','numeric'],
-            'cout'=>['numeric'],
-            'user_id'=>['exists:users,id'],
-            'plat_id'=>['exists:plats,id'],
-            'commande_id'=>['exists:commandes,id'],
+            'adresse'=>['required','string','min:4'],
+            'coutTotal'=>['numeric'],
+            'distance'=>['string','required'],
         ];
     }
 
@@ -37,7 +35,7 @@ class PanierRequest extends FormRequest
     {
         throw new HttpResponseException(response()->json([
             'error' => true,
-            'message' => "Erreur de Creation du Panier",
+            'message' => "Erreur de Creation de la commande",
             'errorList' => $validator->errors()
         ], 400));
     }
