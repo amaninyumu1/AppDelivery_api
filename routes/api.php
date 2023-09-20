@@ -119,8 +119,23 @@ Route::prefix('plat')->name('plat.')->controller(\App\Http\Controllers\Api\PlatC
 });
 
 Route::prefix('commande')->name('commande.')->controller(\App\Http\Controllers\Api\CommandeController::class)->group(function (){
-    Route::get('/pannier/{id}','addCart');
-    Route::post('/pannier/show','cartShow');
+    Route::post('/pannier/{id}','addCart')->middleware('auth:sanctum','abilities:user');
+    Route::get('/pannier/show','cartShow')->middleware('auth:sanctum','abilities:user');
+    /*//liste des admins
+    Route::get('/','index')->name('index');
+    //ajouter un role
+    Route::post('/create','store');
+    //modfier
+    Route::put('/edit/{plat}','update');
+    //supprimer
+    Route::delete('/delete/{plat}','delete');*/
+});
+
+Route::prefix('panier')->name('panier.')->controller(\App\Http\Controllers\Api\PanierController::class)->group(function (){
+    Route::post('/create/{id}','store')->middleware('auth:sanctum','abilities:user');
+    Route::patch('/show','panierShow')->middleware('auth:sanctum','abilities:user');
+    //list de plat by id
+    Route::get('/{panier}','findPlatByid');
     /*//liste des admins
     Route::get('/','index')->name('index');
     //ajouter un role

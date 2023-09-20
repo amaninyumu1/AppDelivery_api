@@ -26,9 +26,9 @@ class PanierRequest extends FormRequest
     {
         return [
             'nbrePlats'=>['required','numeric'],
-            'user_id'=>['required','exists:users,id'],
-            'plat_id'=>['required','exists:plats,id'],
-            'commande_id'=>['required','exists:commandes,id'],
+            'user_id'=>['exists:users,id'],
+            'plat_id'=>['exists:plats,id'],
+            'commande_id'=>['exists:commandes,id'],
         ];
     }
 
