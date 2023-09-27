@@ -30,8 +30,10 @@ class UserController extends Controller
             $validate=$request->validated();
             $validate['password']= Hash::make($validate['password']);
             $User=User::create($validate);
-            $lastUserId= DB::getPdo()->lastInsertId();
-            DB::table('role_user')->insert(['user_id'=>$lastUserId,'role_id'=>$defaultRole->id]);
+            if ($User){
+                $lastUserId= DB::getPdo()->lastInsertId();
+                DB::table('role_user')->insert(['user_id'=>$lastUserId,'role_id'=>$defaultRole->id]);
+            }
             return response()->json([
                 "success" => true,
                 "status_message" => "L'User a ete ajouter avec success",
