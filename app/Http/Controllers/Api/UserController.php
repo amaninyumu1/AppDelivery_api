@@ -29,16 +29,22 @@ class UserController extends Controller
             $defaultRole=$this->findRoleByRoleName('Client');
             $validate=$request->validated();
             $validate['password']= Hash::make($validate['password']);
-            $User=User::create($validate);
-            if ($User){
+            if (!is_null($defaultRole)){
+                $User=User::create($validate);
                 $lastUserId= DB::getPdo()->lastInsertId();
                 DB::table('role_user')->insert(['user_id'=>$lastUserId,'role_id'=>$defaultRole->id]);
+                return response()->json([
+                    "success" => true,
+                    "status_message" => "L'User a ete ajouter avec success",
+                    "data" => $User
+                ], 200);
+            }else{
+                return response()->json([
+                    "error" => true,
+                    "status_message" => "Echec de l'operation",
+                ], 400);
             }
-            return response()->json([
-                "success" => true,
-                "status_message" => "L'User a ete ajouter avec success",
-                "data" => $User
-            ], 200);
+
         }catch (Exception $e){
             return response()->json($e);
         }
