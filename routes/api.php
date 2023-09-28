@@ -27,7 +27,7 @@ Route::prefix('admin')->name('admin.')->controller(\App\Http\Controllers\Api\Adm
     //list admin by id
     Route::get('/{admin}','findByid')->name('index')->middleware('auth:sanctum','abilities:admin');
     //ajouter un admin
-    Route::post('/create','store')->middleware('auth:sanctum','abilities:admin');
+    Route::post('/create','store');
     //connexion
     Route::post('/login','login');
     //deconneion
