@@ -188,7 +188,7 @@ namespace App\Models{
  * @property string $adresse
  * @property string $restaurant_email
  * @property string $restaurant_tel
- * @property string $whatapp
+ * @property string $whatsapp
  * @property string|null $logo
  * @property string $longitude
  * @property string $latitude
@@ -212,7 +212,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereRestaurantTel($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereUserId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereWhatapp($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Restaurant whereWhatsapp($value)
  * @mixin \Eloquent
  */
 	class IdeHelperRestaurant {}

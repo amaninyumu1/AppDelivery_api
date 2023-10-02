@@ -39,7 +39,7 @@ Route::prefix('admin')->name('admin.')->controller(\App\Http\Controllers\Api\Adm
 });
 
 Route::prefix('user')->name('user.')->controller(\App\Http\Controllers\Api\UserController::class)->group(function (){
-    //liste des admins
+    //liste des users
     Route::get('/','index')->name('index');
     //liste user by id
     Route::get('/{user}','findUserById');

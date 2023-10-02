@@ -26,7 +26,7 @@ class RestaurantRequest extends FormRequest
     {
         return [
             'restaurant_name'=>['required','string','min:4',Rule::unique('restaurants')->ignore($this->route()->parameter('restaurant'))],
-            'whatapp'=>['required','string',Rule::unique('restaurants')->ignore($this->route()->parameter('restaurant'))],
+            'whatsapp'=>['required','string',Rule::unique('restaurants')->ignore($this->route()->parameter('restaurant'))],
             'adresse'=>['required','string',Rule::unique('restaurants')->ignore($this->route()->parameter('restaurant'))],
             'restaurant_tel'=>['required',Rule::unique('restaurants')->ignore($this->route()->parameter('restaurant'))],
             'restaurant_email'=>['required','email',Rule::unique('restaurants')->ignore($this->route()->parameter('restaurant'))],
