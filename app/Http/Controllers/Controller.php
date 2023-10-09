@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use DB;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Collection;
 
 class Controller extends BaseController
 {
@@ -22,6 +24,22 @@ class Controller extends BaseController
             "error" => true,
             "status_message" => "Not authenticate",
         ], 400);
+    }
+
+    /**
+     * findRestaurantWhereUserIdIsNotNull
+     * @param $user_id
+     * @return LengthAwarePaginator|Collection
+     */
+    public function findRestaurantWhereUserIdIsNotNull($restaurant_id=null)
+    {
+        $restaurant=null;
+        if (!is_null($restaurant_id)){
+            $restaurant=DB::table('restaurants')->where('restaurants.user_id','!=','null')->where('restaurants.id','=',''.$restaurant_id)->paginate(25);
+        }else{
+            $restaurant=DB::table('restaurants')->where('restaurants.user_id','!=','null')->get();
+        }
+        return $restaurant;
     }
 
     /**

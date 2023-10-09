@@ -14,7 +14,7 @@ class RestaurantController extends Controller
     {
         return response()->json([
             "success" => true,
-            "data" => Restaurant::get()
+            "data" => $this->findRestaurantWhereUserIdIsNotNull()
         ], 200);
     }
 
@@ -79,7 +79,7 @@ class RestaurantController extends Controller
     {
         return response()->json([
             "success" => true,
-            "data" => Restaurant::find($restaurant)
+            "data" => $this->findRestaurantWhereUserIdIsNotNull($restaurant->id)
         ], 200);
     }
 
